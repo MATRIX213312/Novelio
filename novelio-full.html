@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOVELIO — Read beyond boundaries</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F1E8;--tx:#282820;--ac:#B8A783;--sf:#FFFFFF;--mu:#6d6b5e;--ln:rgba(40,40,32,.15);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#20211F;--tx:#ECE7DA;--sf:#2B2C29;--mu:#a9a595;--ln:rgba(236,231,218,.16);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#20211F;--tx:#ECE7DA;--sf:#2B2C29;--mu:#a9a595;--ln:rgba(236,231,218,.16);color-scheme:dark}
+*{box-sizing:border-box}html{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,system-ui,sans-serif;min-height:100%}
+h1,h2,h3,.serif{font-family:Literata,Georgia,serif;font-weight:600;margin:0}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--ln)}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+.bar{display:flex;align-items:center;gap:20px;height:60px}
+.logo{display:flex;align-items:center;gap:8px;font:600 19px Literata,serif;letter-spacing:.14em;text-decoration:none}
+.logo svg{width:26px;height:26px}
+nav{display:flex;gap:16px;flex:1;overflow-x:auto}
+nav a{text-decoration:none;color:var(--mu);white-space:nowrap}nav a.on,nav a:hover{color:var(--tx)}
+.sr{border:1px solid var(--ln);background:var(--sf);border-radius:20px;padding:6px 14px;width:190px}
+.ib{border:1px solid var(--ln);background:none;border-radius:20px;padding:6px 12px;cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--ln)}
+.hero h1{font-size:clamp(38px,7vw,76px);line-height:1.05;max-width:11em;letter-spacing:-.01em}
+.hero p{max-width:34em;color:var(--mu);font-size:17px;margin:20px 0 28px}
+.btn{display:inline-block;background:var(--tx);color:var(--bg);border:0;border-radius:4px;padding:11px 20px;cursor:pointer;text-decoration:none;font-weight:500}
+.btn.o{background:none;color:var(--tx);border:1px solid var(--tx)}
+section{padding:40px 0 8px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+.sh h2{font-size:26px}.sh a{color:var(--mu)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px}
+.bk{cursor:pointer;text-decoration:none;display:block}
+.cv{aspect-ratio:2/3;border-radius:3px 8px 8px 3px;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;color:#F5F1E8;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),0 6px 16px -8px rgba(0,0,0,.45);overflow:hidden}
+.cv{position:relative}.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cv b{font:600 17px/1.15 Literata,serif}.cv i{font-size:11px;font-style:normal;opacity:.8}
+.bk h3{font-size:15px;margin:10px 0 2px}.bk small{color:var(--mu)}
+.tag{display:inline-block;font-size:12px;border:1px solid var(--ln);border-radius:12px;padding:1px 9px;background:var(--sf)}
+.tag.free{border-color:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--ln);background:var(--sf);border-radius:4px;padding:10px 16px;cursor:pointer;font-family:Literata,serif}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.row select,.row input{border:1px solid var(--ln);background:var(--sf);border-radius:4px;padding:8px 10px}
+.det{display:grid;grid-template-columns:240px 1fr;gap:36px;padding:40px 0}
+.det h1{font-size:38px;line-height:1.1}
+.det dl{display:grid;grid-template-columns:110px 1fr;gap:6px;color:var(--mu)}.det dd{margin:0;color:var(--tx)}
+.box{background:var(--sf);border:1px solid var(--ln);border-radius:6px;padding:16px;margin:20px 0}
+.rd{max-width:680px;margin:0 auto;padding:36px 20px 80px}
+.rd p{font-family:Literata,serif;margin:0 0 1.1em}
+.rd s{text-decoration:none;cursor:pointer}.rd s.m{background:color-mix(in srgb,var(--ac) 45%,transparent);border-radius:2px}
+.pb{height:3px;background:var(--ln)}.pb div{height:100%;background:var(--ac)}
+.tb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 0;border-bottom:1px solid var(--ln)}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--ln)}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}.st div{background:var(--sf);border:1px solid var(--ln);border-radius:6px;padding:16px}.st b{font:600 30px Literata,serif;display:block}
+footer{margin-top:64px;border-top:1px solid var(--ln);padding:28px 0 40px;color:var(--mu);font-size:13px}
+footer .w{display:flex;flex-wrap:wrap;gap:8px 28px}
+.em{color:var(--mu);padding:20px 0}
+@media(max-width:700px){.det{grid-template-columns:1fr}.det .cv{max-width:200px}.sr{width:110px}.hero{padding:44px 0 36px}}
+</style></head><body>
+<header><div class="w bar">
+<a class="logo" href="#home"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7c5-2 10-1 13 2 3-3 8-4 13-2v18c-5-2-10-1-13 2-3-3-8-4-13-2z"/><path d="M11 20V12l10 8v-8" stroke="#B8A783" stroke-width="2.4"/></svg>NOVELIO</a>
+<nav id="nav"><a href="#explore">Explore</a><a href="#genres">Genres</a><a href="#languages">Languages</a><a href="#library">My Library</a></nav>
+<input class="sr" id="hs" type="search" placeholder="Search books" aria-label="Search books">
+<button class="ib" id="th" aria-label="Toggle theme">Theme</button>
+<a class="ib" href="#profile" style="text-decoration:none">Profile</a>
+</div></header>
+<main id="app"></main>
+<footer><div class="w"><span>© NOVELIO — demo build</span><span>Sources: demo catalogue (Open Library and Project Gutenberg planned)</span><span>Copyright</span><span>Privacy</span><span>Contact</span><a href="#admin">Admin</a></div></footer>
+<script>
+const B=[
+{id:1,t:"Pride and Prejudice",a:"Jane Austen",l:"en",g:"Fiction",y:1813,x:"free",c:"#6b3b3b",d:"A sharp comedy of manners about Elizabeth Bennet, marriage and money in Regency England.",p:["It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.","However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters."]},
+{id:2,t:"Moby-Dick",a:"Herman Melville",l:"en",g:"Fiction",y:1851,x:"free",c:"#1f3d52",d:"Captain Ahab’s obsessive hunt for the white whale, told by the sailor Ishmael.",p:["Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."]},
+{id:3,t:"Анна Каренина",a:"Лев Толстой",l:"ru",g:"Fiction",y:1878,x:"free",c:"#4d4a2c",d:"Роман о любви, семье и обществе в России XIX века.",p:["Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.","Всё смешалось в доме Облонских."]},
+{id:4,t:"Alice’s Adventures in Wonderland",a:"Lewis Carroll",l:"en",g:"Fiction",y:1865,x:"free",c:"#2f5f52",d:"A girl follows a white rabbit down a hole into a world of nonsense.",p:["Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice, “without pictures or conversations?”"]},
+{id:5,t:"Преступление и наказание",a:"Фёдор Достоевский",l:"ru",g:"Fiction",y:1866,x:"preview",c:"#3a3a4f",d:"Психологический роман о студенте Раскольникове и цене идеи."},
+{id:6,t:"Xamsa",a:"Alisher Navoiy",l:"uz",g:"Poetry",y:1485,x:"ext",c:"#7a5a2a",d:"Five epic poems by the founder of Uzbek literary language."},
+{id:7,t:"ألف ليلة وليلة",a:"Anonymous",l:"ar",g:"Fiction",y:1400,x:"free",c:"#5a2f4a",d:"A collection of Middle Eastern folk tales framed by Scheherazade’s storytelling.",p:["بلغني أيها الملك السعيد أنه كان في قديم الزمان تاجر من التجار، كثير المال والمعاملات."]},
+{id:8,t:"The Republic",a:"Plato",l:"en",g:"Philosophy",y:-375,x:"free",c:"#44505a",d:"A dialogue on justice, the soul and the ideal city.",p:["I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess."]},
+{id:9,t:"On the Origin of Species",a:"Charles Darwin",l:"en",g:"Science",y:1859,x:"preview",c:"#3f5a34",d:"The foundational work of evolutionary biology."},
+{id:10,t:"Don Quijote",a:"Miguel de Cervantes",l:"es",g:"Fiction",y:1605,x:"borrow",c:"#7a3b24",d:"A gentleman who reads too many chivalric romances sets out to revive knighthood."},
+{id:11,t:"红楼梦",a:"曹雪芹",l:"zh",g:"Fiction",y:1791,x:"preview",c:"#8a2f2f",d:"A family saga and one of the Four Great Classical Novels of Chinese literature."},
+{id:12,t:"Meditations",a:"Marcus Aurelius",l:"en",g:"Philosophy",y:180,x:"borrow",c:"#4a4638",d:"Private notes on Stoic practice by a Roman emperor."},
+{id:13,t:"The Art of Computer Programming",a:"Donald Knuth",l:"en",g:"Technology",y:1968,x:"ext",c:"#27405e",d:"A comprehensive monograph on algorithms."},
+{id:14,t:"Autobiography",a:"Benjamin Franklin",l:"en",g:"Biography",y:1791,x:"none",c:"#5e4a2a",d:"The memoirs of a printer, scientist and statesman."},
+{id:15,t:"Frankenstein",a:"Mary Shelley",l:"en",g:"Fiction",y:1818,c:"#2e4a3f",d:"A scientist creates life and flees from what he has made.",gid:84},
+{id:16,t:"Dracula",a:"Bram Stoker",l:"en",g:"Fiction",y:1897,c:"#5a2323",d:"A Transylvanian count arrives in England; a group of friends sets out to stop him.",gid:345},
+{id:17,t:"The Adventures of Sherlock Holmes",a:"Arthur Conan Doyle",l:"en",g:"Fiction",y:1892,c:"#3b3a2c",d:"Twelve detective stories featuring Holmes and Watson.",gid:1661},
+{id:18,t:"Great Expectations",a:"Charles Dickens",l:"en",g:"Fiction",y:1861,c:"#3d3d52",d:"The orphan Pip rises in society and learns what it costs.",gid:1400},
+{id:19,t:"War and Peace",a:"Leo Tolstoy",l:"en",g:"History",y:1869,c:"#4a3a2c",d:"Five aristocratic families during the Napoleonic wars.",gid:2600},
+{id:20,t:"The Picture of Dorian Gray",a:"Oscar Wilde",l:"en",g:"Fiction",y:1890,c:"#4f2f5a",d:"A portrait ages while its model stays young.",gid:174},
+{id:21,t:"Jane Eyre",a:"Charlotte Brontë",l:"en",g:"Fiction",y:1847,c:"#3a4a5a",d:"An orphaned governess finds work, love and a secret at Thornfield Hall.",gid:1260},
+{id:22,t:"Wuthering Heights",a:"Emily Brontë",l:"en",g:"Fiction",y:1847,c:"#3c3f3a",d:"A stormy tale of obsession on the Yorkshire moors.",gid:768},
+{id:23,t:"The Metamorphosis",a:"Franz Kafka",l:"en",g:"Fiction",y:1915,c:"#4a4a4a",d:"A traveling salesman wakes up transformed into an insect.",gid:5200},
+{id:24,t:"The Art of War",a:"Sun Tzu",l:"en",g:"Philosophy",y:-500,c:"#7a2f2f",d:"An ancient Chinese treatise on strategy.",gid:132},
+{id:25,t:"The Prince",a:"Niccolò Machiavelli",l:"en",g:"Philosophy",y:1532,c:"#5a3a2a",d:"A manual on gaining and keeping political power.",gid:1232},
+{id:26,t:"Treasure Island",a:"Robert Louis Stevenson",l:"en",g:"Fiction",y:1883,c:"#2f5a6a",d:"A boy, a map and a ship full of pirates.",gid:120},
+{id:27,t:"Ulysses",a:"James Joyce",l:"en",g:"Fiction",y:1922,c:"#2a4a7a",d:"One day in Dublin, told in many styles.",gid:4300},
+{id:28,t:"Thus Spoke Zarathustra",a:"Friedrich Nietzsche",l:"en",g:"Philosophy",y:1883,c:"#6a5a2a",d:"A philosophical novel in the voice of a wandering prophet.",gid:1998},
+{id:29,t:"The Wealth of Nations",a:"Adam Smith",l:"en",g:"Economics",y:1776,c:"#3a5a3a",d:"The classic inquiry into labour, markets and prosperity.",gid:3300},
+{id:30,t:"Relativity: The Special and General Theory",a:"Albert Einstein",l:"en",g:"Science",y:1916,c:"#2a3a5a",d:"Einstein’s own account of relativity for general readers.",gid:5001},
+{id:31,t:"Notes from Underground",a:"Fyodor Dostoevsky",l:"en",g:"Fiction",y:1864,c:"#4a3f3f",d:"The bitter monologue of a withdrawn civil servant.",gid:600},
+{id:32,t:"Leaves of Grass",a:"Walt Whitman",l:"en",g:"Poetry",y:1855,c:"#4f6a3a",d:"The landmark collection of American free verse.",gid:1322}];
+const GID={1:1342,2:2701,3:1399,4:11,5:2554,8:1497,9:1228,10:996,12:2680,14:148};B.forEach(b=>{if(GID[b.id])b.gid=GID[b.id]});
+const LN={en:"English",ru:"Русский",uz:"Oʻzbek",ar:"العربية",es:"Español",zh:"中文"};
+const AC={free:"Read free",borrow:"Borrow",preview:"Preview",ext:"External source",none:"Unavailable"};
+const ST={fav:"Favorites",now:"Reading now",done:"Read",later:"Set aside"};
+const GN=[...new Set(B.map(b=>b.g))];
+let S={lib:{},prog:{},bm:{},acc:{},theme:"",fs:19,lh:1.7,goal:20},Q={q:"",l:"",g:"",a:""};
+try{Object.assign(S,JSON.parse(localStorage.getItem("novelio")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("novelio",JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s),app=$("#app");
+const acc=b=>S.acc[b.id]||(b.gid?"free":b.x),get=id=>B.find(b=>b.id==id),ol=q=>"https://openlibrary.org/search?q="+encodeURIComponent(q),lr=q=>"https://www.litres.ru/search/?q="+encodeURIComponent(q);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const yr=y=>y<0?Math.abs(y)+" BC":y;
+const cover=b=>`<div class="cv" data-t="${esc(b.t)}" data-a="${esc(b.a)}" style="background:${b.c}"><i>${esc(b.a)}</i><b>${esc(b.t)}</b></div>`;
+const card=b=>`<a class="bk" href="#book-${b.id}">${cover(b)}<h3>${esc(b.t)}</h3><small>${esc(b.a)}</small><br><span class="tag ${acc(b)}">${AC[acc(b)]}</span></a>`;
+const grid=a=>a.length?`<div class="g">${a.map(card).join("")}</div>`:`<p class="em">No books match these filters. Clear a filter or try another title.</p>`;
+const sec=(t,h,body)=>`<section><div class="w"><div class="sh"><h2>${t}</h2>${h?`<a href="${h}">See all</a>`:""}</div>${body}</div></section>`;
+function theme(){const r=document.documentElement;S.theme?r.dataset.theme=S.theme:delete r.dataset.theme}
+$("#th").onclick=()=>{const dark=S.theme?S.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;S.theme=dark?"light":"dark";theme();save()};
+$("#hs").onkeydown=e=>{if(e.key=="Enter"){Q={q:e.target.value,l:"",g:"",a:""};e.target.value="";location.hash=="#explore"?route():location.hash="explore"}};
+function home(){
+ const cont=Object.keys(S.prog).map(get).filter(Boolean).slice(0,6);
+ app.innerHTML=`<div class="hero"><div class="w"><h1>A universe of books. One place to read.</h1><p>NOVELIO brings the world’s literature together: find, read and keep books in many languages, on any device.</p><a class="btn" href="#explore">Explore the library</a></div></div>`
+ +sec("Editor’s Picks","#explore",grid(B.filter(b=>[1,3,7,8,12,6].includes(b.id))))
+ +(cont.length?sec("Continue Reading","#library",grid(cont)):"")
+ +sec("Explore by Language","",`<div class="chips">${Object.keys(LN).map(k=>`<button class="chip" data-l="${k}">${LN[k]}</button>`).join("")}</div>`)
+ +sec("Explore by Genre","",`<div class="chips">${GN.map(k=>`<button class="chip" data-g="${k}">${k}</button>`).join("")}</div>`)
+ +sec("Classics & Public Domain","",grid(B.filter(b=>acc(b)=="free").slice(0,5)))
+ +sec("Recently Added","",grid(B.slice(-5).reverse()));
+ app.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{Q={q:"",l:c.dataset.l||"",g:c.dataset.g||"",a:""};location.hash="explore"});
+}
+function explore(){
+ app.innerHTML=`<div class="w" style="padding-top:36px"><h1 style="font-size:38px;margin-bottom:20px">Explore</h1><div class="row">
+ <input id="q" type="search" placeholder="Title or author" value="${esc(Q.q)}" aria-label="Search">
+ <select id="l"><option value="">All languages</option>${Object.keys(LN).map(k=>`<option value="${k}">${LN[k]}</option>`).join("")}</select>
+ <select id="g"><option value="">All genres</option>${GN.map(k=>`<option>${k}</option>`).join("")}</select>
+ <select id="a"><option value="">Any access</option>${Object.keys(AC).map(k=>`<option value="${k}">${AC[k]}</option>`).join("")}</select></div><div id="res"></div><div id="live"></div><div class="box" id="wd"></div></div>`;
+ ["l","g","a"].forEach(k=>$("#"+k).value=Q[k]);
+ const f=()=>{Q={q:$("#q").value,l:$("#l").value,g:$("#g").value,a:$("#a").value};const s=Q.q.toLowerCase();
+  const w=encodeURIComponent(Q.q);$("#wd").innerHTML=`<b>Search the whole world’s catalogue</b><p style="margin:6px 0 12px;color:var(--mu)">${Q.q?"Look for “"+esc(Q.q)+"” in":"Type a title above, then search in"} large legal libraries. Millions of books: some are free to read, some can be borrowed, some are listed for purchase.</p><div class="row" style="margin:0"><a class="btn" target="_blank" rel="noopener" href="https://www.litres.ru/search/?q=${w}">Read on LitRes</a><a class="btn o" target="_blank" rel="noopener" href="https://openlibrary.org/search?q=${w}">Open Library</a><a class="btn o" target="_blank" rel="noopener" href="https://www.gutenberg.org/ebooks/search/?query=${w}">Project Gutenberg</a><a class="btn o" target="_blank" rel="noopener" href="https://archive.org/search?query=${w}">Internet Archive</a><a class="btn o" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=bks&q=${w}">Google Books</a></div>`;$("#res").innerHTML=grid(B.filter(b=>(!s||(b.t+" "+b.a).toLowerCase().includes(s))&&(!Q.l||b.l==Q.l)&&(!Q.g||b.g==Q.g)&&(!Q.a||acc(b)==Q.a)))};
+ const f2=()=>{f();upg($("#res"));live()};app.querySelectorAll("input,select").forEach(e=>e.oninput=f2);f2();
+}
+function book(id){
+ const b=get(id);if(!b)return home();const a=acc(b),cur=S.lib[id]||"";
+ const note={free:"The full text is free to read.",borrow:"Library lending: available only if the source allows it.",preview:"Only an excerpt is available.",ext:"Read on the rights holder’s or partner’s site.",none:"The record exists, but no readable text is available yet."}[a];
+ app.innerHTML=`<div class="w det"><div>${cover(b)}</div><div><span class="tag ${a}">${AC[a]}</span><h1 style="margin:12px 0 4px">${esc(b.t)}</h1><p class="serif" style="font-size:19px;margin:0 0 18px">${esc(b.a)}</p><p style="max-width:36em">${esc(b.d)}</p>
+ <dl><dt>Language</dt><dd>${LN[b.l]}</dd><dt>Genre</dt><dd>${b.g}</dd><dt>First published</dt><dd>${yr(b.y)}</dd><dt>Format</dt><dd>${b.p?"EPUB (demo excerpt)":"—"}</dd></dl>
+ <div class="box">${note}</div>
+ <a class="btn" target="_blank" rel="noopener" href="${lr(b.t+" "+b.a)}">Read on LitRes</a> ${b.p?`<a class="btn o" href="#read-${id}">${S.prog[id]?"Continue reading":"Read excerpt"}</a> `:""}${b.gid?`<a class="btn${b.p?" o":""}" target="_blank" rel="noopener" href="https://www.gutenberg.org/ebooks/${b.gid}">Read full text on Project Gutenberg</a> `:""}<a class="btn o" target="_blank" rel="noopener" href="${ol(b.t+" "+b.a)}">Find on Open Library</a>${b.gid?`<p class="em" style="font-size:13px">Project Gutenberg edition: public domain in the US; for non-English originals it may be an English translation. Check the rules of your country.</p>`:""}
+ <div class="row" style="margin-top:22px"><select id="ls" aria-label="Library shelf"><option value="">Add to My Library</option>${Object.keys(ST).map(k=>`<option value="${k}">${ST[k]}</option>`).join("")}</select></div></div></div>`;
+ $("#ls").value=cur;$("#ls").onchange=e=>{e.target.value?S.lib[id]=e.target.value:delete S.lib[id];save()};
+}
+function read(id){
+ const b=get(id);if(!b||!b.p)return location.hash="explore";
+ const sents=b.p.map(p=>p.match(/[^.!?؟]+[.!?؟”]*\s*/g)||[p]);let n=0;const tot=sents.flat().length;
+ const bm=S.bm[id]=S.bm[id]||[];
+ app.innerHTML=`<div class="pb"><div id="pg"></div></div><div class="w"><div class="tb"><a class="ib" href="#book-${id}" style="text-decoration:none">Back</a><b class="serif">${esc(b.t)}</b><span style="flex:1"></span><button class="ib" id="fm" aria-label="Smaller text">A−</button><button class="ib" id="fp" aria-label="Larger text">A+</button><button class="ib" id="lh">Spacing</button></div></div>
+ <article class="rd" dir="${b.l=="ar"?"rtl":"ltr"}" lang="${b.l}">${sents.map(p=>`<p>${p.map(s=>`<s data-i="${n++}" class="${bm.includes(n-1)?"m":""}" tabindex="0">${esc(s)}</s>`).join("")}</p>`).join("")}
+ <p class="em" style="font-family:Inter;font-size:13px" dir="ltr">Demo excerpt. Tap a sentence to bookmark it and save your place.</p></article>`;
+ const fit=()=>{const r=$(".rd");r.style.fontSize=S.fs+"px";r.style.lineHeight=S.lh;$("#pg").style.width=(S.prog[id]||0)+"%"};fit();
+ $("#fm").onclick=()=>{S.fs=Math.max(14,S.fs-2);fit();save()};$("#fp").onclick=()=>{S.fs=Math.min(30,S.fs+2);fit();save()};
+ $("#lh").onclick=()=>{S.lh=S.lh>=2?1.4:S.lh+.3;fit();save()};
+ const tap=e=>{const s=e.target.closest("s");if(!s)return;const i=+s.dataset.i,k=bm.indexOf(i);k<0?bm.push(i):bm.splice(k,1);s.classList.toggle("m");S.prog[id]=Math.round((i+1)/tot*100);fit();save()};
+ $(".rd").onclick=tap;$(".rd").onkeydown=e=>{if(e.key=="Enter")tap(e)};
+}
+function library(){
+ const ids=Object.keys(S.lib);
+ app.innerHTML=`<div class="w" style="padding-top:36px"><h1 style="font-size:38px;margin-bottom:8px">My Library</h1>`+(ids.length?Object.keys(ST).map(k=>{const a=ids.filter(i=>S.lib[i]==k).map(get);return a.length?sec(ST[k],"",grid(a)):""}).join(""):`<p class="em">Your shelves are empty. Open any book and choose <b>Add to My Library</b>.</p><a class="btn" href="#explore">Explore the library</a>`)+`</div>`;
+}
+function profile(){
+ const read=Object.values(S.lib).filter(v=>v=="done").length,now=Object.values(S.lib).filter(v=>v=="now").length;
+ app.innerHTML=`<div class="w" style="padding:36px 20px"><h1 style="font-size:38px;margin-bottom:20px">Profile</h1><div class="st"><div><b>${Object.keys(S.lib).length}</b>Books saved</div><div><b>${now}</b>Reading now</div><div><b>${read}</b>Finished</div><div><b>${Object.values(S.bm).flat().length}</b>Bookmarks</div></div>
+ <div class="box"><label>Reading goal, minutes per day <input id="goal" type="number" min="5" max="600" value="${S.goal}" style="width:80px;margin-left:8px;border:1px solid var(--ln);background:var(--bg);border-radius:4px;padding:6px"></label></div>
+ <div class="box">Interface language and device sync arrive with accounts (Stage 3). Everything here is saved only in this browser.</div>
+ <button class="btn o" id="rs">Clear my data</button></div>`;
+ $("#goal").onchange=e=>{S.goal=+e.target.value||20;save()};
+ $("#rs").onclick=()=>{if(confirm("Delete library, bookmarks and settings from this browser?")){S={lib:{},prog:{},bm:{},acc:{},theme:"",fs:19,lh:1.7,goal:20};save();theme();route()}};
+}
+function admin(){
+ app.innerHTML=`<div class="w" style="padding:36px 20px"><h1 style="font-size:38px;margin-bottom:8px">Admin</h1><p class="em" style="padding-top:0">Demo mode: no sign-in yet. In production this page needs a server-side admin role.</p><div style="overflow-x:auto"><table><tr><th>Title</th><th>Language</th><th>Access status</th></tr>${B.map(b=>`<tr><td>${esc(b.t)}</td><td>${LN[b.l]}</td><td><select data-id="${b.id}">${Object.keys(AC).map(k=>`<option value="${k}" ${acc(b)==k?"selected":""}>${AC[k]}</option>`).join("")}</select></td></tr>`).join("")}</table></div></div>`;
+ app.querySelectorAll("select").forEach(s=>s.onchange=()=>{S.acc[s.dataset.id]=s.value;save()});
+}
+function simple(t){app.innerHTML=`<div class="w" style="padding-top:36px"><h1 style="font-size:38px;margin-bottom:20px">${t}</h1></div>`}
+function route(){
+ const[p,id]=(location.hash.slice(1)||"home").split("-");window.scrollTo(0,0);
+ document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+p));
+ ({home,explore,library,profile,admin,book:()=>book(id),read:()=>read(id),
+  genres:()=>{simple("Genres");app.insertAdjacentHTML("beforeend",`<div class="w"><div class="chips">${GN.map(k=>`<button class="chip" data-g="${k}">${k}</button>`).join("")}</div></div>`);bind()},
+  languages:()=>{simple("Languages");app.insertAdjacentHTML("beforeend",`<div class="w"><div class="chips">${Object.keys(LN).map(k=>`<button class="chip" data-l="${k}">${LN[k]}</button>`).join("")}</div></div>`);bind()}}[p]||home)();
+}
+function bind(){app.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{Q={q:"",l:c.dataset.l||"",g:c.dataset.g||"",a:""};location.hash="explore"})}
+let NET=true,LT;
+async function upg(root){if(!NET||!root)return;for(const el of root.querySelectorAll(".cv[data-t]:not([data-d])")){el.dataset.d=1;try{const r=await fetch("https://openlibrary.org/search.json?limit=1&fields=cover_i&title="+encodeURIComponent(el.dataset.t)+"&author="+encodeURIComponent(el.dataset.a));const c=((await r.json()).docs[0]||{}).cover_i;if(c){const im=new Image();im.alt="";im.onload=()=>{el.querySelectorAll("i,b").forEach(x=>x.style.visibility="hidden");el.append(im)};im.src="https://covers.openlibrary.org/b/id/"+c+"-M.jpg"}}catch(e){NET=false;return}}}
+function live(){clearTimeout(LT);const q=Q.q.trim(),el=$("#live");if(!el)return;if(q.length<2){el.innerHTML="";return}
+ el.innerHTML=`<p class="em">Searching the world catalogue…</p>`;
+ LT=setTimeout(async()=>{try{const r=await fetch("https://openlibrary.org/search.json?limit=24&fields=title,author_name,first_publish_year,cover_i&q="+encodeURIComponent(q));const j=await r.json();
+  el.innerHTML=`<div class="sh" style="margin-top:28px"><h2 style="font-size:22px">Worldwide results</h2></div>`+(j.docs.length?`<div class="g">${j.docs.map(d=>{const a=(d.author_name||[""])[0];return `<a class="bk" target="_blank" rel="noopener" href="${lr(d.title+" "+a)}"><div class="cv" style="background:#44505a"><i>${esc(a)}</i><b>${esc(d.title)}</b>${d.cover_i?`<img src="https://covers.openlibrary.org/b/id/${d.cover_i}-M.jpg" alt="">`:""}</div><h3>${esc(d.title)}</h3><small>${esc(a)} ${d.first_publish_year||""}</small><br><span class="tag free">Read on LitRes</span></a>`}).join("")}</div>`:`<p class="em">Nothing found. Try another spelling.</p>`);
+  el.querySelectorAll("img").forEach(i=>i.onerror=()=>i.remove())}catch(e){el.innerHTML=`<p class="em">Live worldwide search and real covers are blocked on this hosted page. Open the downloaded file in your browser to turn them on, or use the buttons below.</p>`}},350)}
+addEventListener("hashchange",()=>{route();upg(app)});theme();route();upg(app);
+</script></body></html>
